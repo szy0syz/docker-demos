@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  w-a:
+    image: node-write-a:latest
+    volumes:
+      - tmp_volume:/usr/data
+
+  w-b:
+    image: node-write-b:latest
+    volumes:
+      - tmp_volume:/usr/data
+
+  w-c:
+    image: node-write-c:latest
+    volumes:
+      - tmp_volume:/usr/data
+
+
+volumes:
+  tmp_volume:
+    driver: local
+    driver_opts:
+       o: bind
+       type: none
+       device: /Users/szy0syz/git/docker-demos/tmp
